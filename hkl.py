@@ -9,11 +9,11 @@ import numpy as np
 # >>>> resultater
 
 # [100]
-R = np.array([4.94, 6.98, np.pi*45.5/180, 100, [0,0,-4]]) # R1, R2, theta in      
+# R = np.array([4.94, 6.98, np.pi*45.5/180, 100, [0,0,-4]]) # R1, R2, theta in      
 # >>> [2,0,0] og [2,2,0]  >>> P = [0,0,-4] -> {100}
 
 # [110]
-# R = np.array([4.23, 4.91, np.pi*54.2/180, 110, [2,2,0]]) # R1, R2, theta      
+R = np.array([4.23, 4.91, np.pi*54.2/180, 110, [2,2,0]]) # R1, R2, theta      
 # >>> [0,0,2] og [-1,1,1] >>> P = [2,2,0]
 
 # [110]
@@ -93,8 +93,8 @@ def possible_hkl_check(hkl, hkl_sum, ratio_threshold, angle_threshold):
 
                     # filtrerer ut kun de hkl-parene som har samme zone axis som rapportens simulerte diffraksjonsmønster
                     if (str(np.cross(hkl[i],hkl[j])) == str(np.array(R[4])) or skip_zone_axis_filter):
-                        print(f"[{int(R[3])}]: hkl(1) = {hkl[i]} & hkl(2) = {hkl[j]}, crossproduct: {np.cross(hkl[i],hkl[j])}")
-                        # print(f"& & {hkl[i][0]}, {hkl[i][1]}, {hkl[i][2]} & & {hkl[j][0]}, {hkl[j][1]}, {hkl[j][2]} ")
+                        # print(f"[{int(R[3])}]: hkl(1) = {hkl[i]} & hkl(2) = {hkl[j]}, crossproduct: {np.cross(hkl[i],hkl[j])}")
+                        print(f"& & {hkl[i]} & & {hkl[j]} ")
 
                     # legger til alle mulige hkl-verdier, ikke filtrert på zone axis
                     possbile_hkl.append([hkl[i], hkl[j]])
