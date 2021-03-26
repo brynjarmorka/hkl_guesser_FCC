@@ -66,19 +66,18 @@ def is_even(num):
 # Helper functions end
 #
 
+#
+# The two main functions start
+#
 
-# lage listen med alle mulige hkl-kombinasjoner fra 0 til max_hkl.
-# sjekker at hkl ikke er [0,0,0].
-# gjør FCC-sjekken, altså kun odde- eller partall i én hkl
 def make_hkl():
     """ 
     This function makes a list of all the possible hkl combinations for
     FCC lattices, with lowest value min_hkl and highest max_hkl-1. This
     function does the FCC check.
     Returns list(hkl_combinations) and list(hkl_squared_sums)
-    
-    
     """
+
     hkl = [] # first return value
     hkl_square_sum = [] # second return value
     for h in range (min_hkl, max_hkl):
@@ -93,10 +92,6 @@ def make_hkl():
                                 hkl_square_sum.append(hkl_sqare(midlertidig))
     return hkl, hkl_square_sum
 
-
-# sjekker først om ratio R_1 / R_2 er innenfor ratio_threshold
-# sjekker så om vinkelen er innenfor angle_threshold
-# skriver ut mulige hkl-kombinasjoner
 
 def possible_hkl_check(hkl, hkl_square_sum, ratio_threshold, angle_threshold):
     """
@@ -127,10 +122,19 @@ def possible_hkl_check(hkl, hkl_square_sum, ratio_threshold, angle_threshold):
                         hkl_zone_axis_match.append([hkl[i], hkl[j]])                    
     return possbile_hkl, hkl_zone_axis_match
 
-# fist makes the possible hkl list and sum list
+
+#
+# The two main functions end
+#
+
+#
+# Actually running the functions
+#
+
+# Fist makes the possible hkl list and sum list
 hkl_list, hkl_square_sum = make_hkl()
 
-# then checks which are possibilities
+# Then checks which are possibilities
 possibilities, hkl_zone_axis_match = possible_hkl_check(hkl_list, hkl_square_sum, ratio_threshold, angle_threshold)
 
 # Gives the number of possible matches with angle and ratio check
