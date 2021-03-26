@@ -10,21 +10,21 @@ The first lines of code are for selecting the input values. The format:
 # [assumed orientation, i.e. which diffraction pattern] 
 # the measured values, and some metadata. [R1, R2, theta, assumed 
 # orientation, [zone axis from assumed orientation and simulation]]
-# >>>> resulting R1- and R2-vectors  >>> zone axis direction -> family
+# >>>> one of the outputs
 
 """
 
 # [100]
-R = np.array([4.94, 6.98, np.pi*45.5/180, 100, [0,0,-4]], dtype=object)     
-# >>>> [2,0,0], [2,2,0]       >>> P = [0,0,-4] -> {100}
+R = np.array([4.93, 6.96, np.pi*45.5/180, 100, [0,0,-4]], dtype=object)     
+# >>>> [100]: R1 = [-2, 0, 0] & R2 = [-2, 2, 0], crossproduct: [ 0  0 -4] >>>> and three more
 
 # [110]
-# R = np.array([4.23, 4.91, np.pi*54.2/180, 110, [2,2,0]], dtype=object)      
-# >>>> [0,0,2], [-1,1,1]      >>>> P = [2,2,0]
+R = np.array([4.90, 4.23, np.pi*54.2/180, 110, [2,2,0]], dtype=object)      
+# >>>> [110]: R1 = [0, 0, -2] & R2 = [-1, 1, -1], crossproduct: [2 2 0] >>>> and one more
 
-# [110], alternative measurement
-# R = np.array([6.92, 4.23, np.pi*35.5/180, 110, [2,2,0]], dtype=object)        
-# >>>> [-2,2,0], [-1,1,1]     >>>> P = [-2,-2,0] -> {110}
+# [110], alternative measurement not in the report
+# R = np.array([6.9, 4.2, np.pi*36/180, 110, [2,2,0]], dtype=object)        
+# >>>> [110]: R1 = [-2, 2, 0] & R2 = [-1, 1, 1], crossproduct: [2 2 0] >>>> and one more
 
 
 # Boolean values to skip certain if statements. Skip when TRUE
